@@ -1,0 +1,58 @@
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font: 16px / 1 sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e4e4;
+  padding: 15px 20px;
+}
+
+header h1 {
+  color: black;
+  height: 22px;
+  margin: 0;
+}
+
+main {
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  margin-bottom: 1em;
+}
+
+th {
+  text-align: left;
+  padding: 1px 5px;
+}
+
+td {
+  text-align: left;
+  padding: 5px;
+}
+
+footer {
+  margin: 1em;
+  font-size: 1em;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  border-top: thin solid #cacaca;
+}

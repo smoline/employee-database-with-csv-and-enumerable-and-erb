@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Employee Report</title>
+	<link rel="stylesheet" href="./screen.css" type="text/css">
+</head>
+<body>
+	<header>
+		<h1>Employee Report</h1>
+	</header>
+	<main>
+		<table style="width:100%">
+			<% @people.each do |person| %>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Phone</th>
+			</tr>
+			<tr>
+				<td rowspan="5"><%= person.name %></td>
+				<td><%= person.address %></td>
+				<td><%= person.phone %></td>
+			</tr>
+			<tr>
+				<th>Position</th>
+				<th>Salary</th>
+			</tr>
+			<tr>
+				<td><%= person.position %></td>
+				<td>$<%= person.salary %></td>
+			</tr>
+			<tr>
+				<th>Slack Account</th>
+				<th>Github Account</th>
+			</tr>
+			<tr>
+				<td><%= person.slack %></td>
+				<td><%= person.github %></td>
+			</tr>
+			<% end %>
+		</table>
+		<table style="width:100%">
+			<% salary_total = total_salary_by_position %>
+			<tr>
+				<th colspan="2">Total Salaries by Position</th>
+			</tr>
+			<% salary_total.each do |position,salary| %>
+			<tr>
+				<td><%= position %>:</td>
+				<td>$<%= salary %></td>
+			</tr>
+			<% end %>
+		</table>
+		<table style="width:100%">
+			<% results = total_by_position %>
+			<tr>
+				<th colspan="2">Total Employees by Position:</th>
+			</tr>
+			<% results.each do |position,count| %>
+			<tr>
+				<td><%= position %>:</td>
+				<td><%= count %></td>
+			</tr>
+			<% end %>
+		</table>
+		<p>End of Report</p>
+	</main>
+	<footer>
+		<p>&copy; 2017 The Company, Inc. All rights reserved.</p>
+	</footer>
+</body>
+</html>
