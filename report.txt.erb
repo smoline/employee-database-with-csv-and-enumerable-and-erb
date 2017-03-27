@@ -1,23 +1,21 @@
 Employee Report
 
 Employees
-<% @people.each do |person| %>
-<%= person.name.ljust(10) %><%= person.address.ljust(20)%><%= person.phone.rjust(19) %>
-<%= person.position.rjust(31) %>        $<%= person.salary.rjust(9) %>
-<%= person.slack.rjust(31) %><%= person.github.rjust(18) %>
+
+<% @people.each do |person| %><%= person.name.ljust(10) %><%= person.address.rjust(20)%><%= person.phone.rjust(19) %>
+<%= person.position.rjust(30) %>        $<%= person.salary.rjust(10) %>
+<%= person.slack.rjust(30) %><%= person.github.rjust(19) %>
 
 <% end %>
 
 <% salary_total = total_salary_by_position %>
  Total Salaries by Position:
-<% salary_total.each do |position,salary| %>
-<%= position.rjust(27) %>:          $<%= salary.to_s.rjust(9) %>
+<% salary_total.each do |position,salary| %><%= position.rjust(27) %>:          $<%= salary.to_s.rjust(9) %>
 <% end %>
 
 <% results = total_by_position %>
 Total Employees by Position:
-<% results.each do |position,count| %>
-<%= position.rjust(27) %>:<%= count.to_s.rjust(17) %>
+<% results.each do |position,count| %><%= position.rjust(27) %>:<%= count.to_s.rjust(17) %>
 <% end %>
 
 End of Report
