@@ -1,0 +1,21 @@
+Employee Report
+<% @people.each do |person| %>
+<%= person.name %>     <%= person.address %>                    <%= person.phone %>
+          <%= person.position %>                          $<%= person.salary %>
+          <%= person.slack %>                              <%= person.github %>
+
+<% end %>
+
+<% salary_total = total_salary_by_position %>
+Total Salaries by Position:
+<% salary_total.each do |position,salary| %>
+                <%= position %>:              $<%= salary %>
+<% end %>
+
+<% results = total_by_position %>
+Total Employees by Position:
+  <% results.each do |position,count| %>
+                <%= position %>:               <%= count %>
+<% end %>
+
+End of Report

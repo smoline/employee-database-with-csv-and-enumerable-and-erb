@@ -165,24 +165,13 @@ class MyDatabase
   end
 
   def employee_report_text_file
-    File.open("employee-report.txt", "w") do |text|
-      text.printf("Employee Report\n\n")
-      @people.each do |person|
-        text.printf("%-10s%-30s%12s\n%10s%-33s$%8d\n%10s%-30s%12s\n\n", "#{person.name}", "#{person.address}", "#{person.phone}", " ", "#{person.position}", "#{person.salary}", " ", "#{person.slack}", "#{person.github}")
-      end
-      salary_total = total_salary_by_position
-      text.printf("%30s\n", "Total Salaries by Position:")
-      salary_total.each do |position,salary|
-        text.printf("%10s%20s%6s$%9d\n", " ", "#{position}:", " ", "#{salary}")
-      end
-      text.printf("\n")
-      results = total_by_position
-      text.printf("%30s\n", "Total Employees by Position:")
-      results.each do |position,count|
-        text.printf("%10s%20s%16d\n", " ", "#{position}:", "#{count}")
-      end
-      text.puts "End of Report\n\n"
-    end
+    template_string = File.read("report.txt.erb")
+
+    erb_template = ERB.new(template_string)
+    text = erb_template.result(binding)
+
+    File.write("employee-report.txt", text)
+
     puts "Saving Text file...\n\n"
   end
 
