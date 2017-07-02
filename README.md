@@ -1,6 +1,6 @@
-# TIY Database with CSV, Enumerables and ERB
+# Employee Database with CSV, Enumerables and ERB
 
-* This is a continuation of the TIY Database with new options:
+* This is a continuation of the Employee Database with new options:
   * It now produces an HTML report using an ERB template
   * It also produced a Text report using an ERB template
 
